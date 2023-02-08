@@ -20,11 +20,11 @@ public class Summary {
     public static Summary getInstance(HashMap<String, Integer> statistic) {
         Summary summary = new Summary();
         Statistic stat = new Statistic();
-        stat.setTotal(statistic.get("total"));
-        stat.setFailed(statistic.get("failed"));
-        stat.setBroken(statistic.get("broken"));
-        stat.setPassed(statistic.get("passed"));
-        stat.setSkipped(statistic.get("skipped"));
+        stat.setTotal(statistic.containsKey("total")?statistic.get("total"):0);
+        stat.setFailed(statistic.containsKey("failed")?statistic.get("failed"):0);
+        stat.setBroken(statistic.containsKey("broken")?statistic.get("broken"):0);
+        stat.setPassed(statistic.containsKey("passed")?statistic.get("passed"):0);
+        stat.setSkipped(statistic.containsKey("skipped")?statistic.get("skipped"):0);
         stat.setUnknown(statistic.containsKey("unknown")?statistic.get("unknown"):0);
         summary.setStatistic(stat);
         return summary;
